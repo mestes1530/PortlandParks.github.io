@@ -1,47 +1,49 @@
-﻿<!-- Portland Parks Web Page, A CSS Portfolio Piece (In Progress) By Mitchell Estes -->
+<!-- Portland Parks Web Page, a CSS portfolio piece (In Progress) By Mitchell Estes -->
 <!DOCTYPE html>
 <html lang="en">
-<!-- HEAD (Title, CDN and CSS) -->
+<!-- HEAD (Title and CSS) -->
 <head>
-    <title>PortlandParks</title>
+    <!-- Page Title-->
+    <title>🌲 Portland Parks 🌲</title>
     <meta charset='UTF-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- CSS -->
+    <!-- CSS (Sets the postion, color, size, etc. of HTML elements) -->
     <style>
+        /* Locks vertical scrolling of whole page */
         html {
             overflow-x: hidden;
         }
+        /* Stretchs the background image to fill the entire background and stay locked in place */
         body {
-            background: url(https://i.pinimg.com/originals/31/5d/31/315d31a9502cb2f3e1d33eb50f72435d.jpg) no-repeat center center fixed;
+            background: url(https://unblast.com/wp-content/uploads/2020/05/Light-Wood-Background-Texture.jpg) no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
         }
+        /* A green bar that fully stretchs across the top of the screen with the title */
         .NavBar {
             background-color: green;
+            color: white;
+            font-weight: bold;
+            font-size: 300%;
+            text-align: center;
             position: absolute;
+            top: 0;
             width: 100%;
             padding: 10px;
             margin-left: -8px;
         }
-        .NavLeft {
-            background-color: blue;
-        }
-        .NavRight {
-            padding-left: 500px;
-        }
-        .NavItem {
-            display: inline;
-            color: white;
-        }
+        /* The div componet that holds all the park cards, a flexbox designed rescale w/ the screen size */
         .ParksResults {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-evenly;
             padding: 40px;
+            padding-top: 120px;
         }
+        /* Rectangle containers used for each individual park, has picture, location, links and info. */
         .ParkCard {
             background-color: white;
             margin: 10px;
@@ -50,95 +52,241 @@
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
             transition: 0.3s
         }
+        /* Displays the picture of the park on the top of the card */
         .ParkPic {
             border-style: ridge;
             width: 98%;
         }
+        /* The parks name is big, underlined and directly under the park pic */
         .ParkName {
             text-align: center;
             text-decoration: underline;
         }
+        /* The street adress of the park w/ a link to it on Google Maps */
+        .ParkLocation {
+            color: darkgray;
+            display: block;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            text-decoration: none;
+        }
+        /* A brief 1 - 2 sentence description of the park */
         .ParkInfo {
             padding: 10px;
         }
+        /* Button that links to the park's "Portland.gov" webpage */
+        .ParkSite {
+            border: 3px solid black;
+            padding: 5px;
+            margin-left: 37%;
+            margin-right: 37%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+        /* Bar along the bottom of the webpage with publish info and link to potfolio */
+        .FooterBar {
+            background-color: green;
+            position: absolute;
+            width: 100%;
+            padding-bottom: 50px;
+            margin-left: -8px;
+            text-align: center;
+        }
+        /* Link back to my portfolio webpage */
+        .PortfolioLink {
+            color: white;
+        }
+        /* Changes the card's background color when user hovers over it */
         .ParkCard:hover {
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
             border-style: outset;
             background-color: green;
             color: lightgray;
         }
+        /* Changes the color of the link to the park on Google Maps */
+        .ParkLocation:hover {
+            color: black;
+        }
+        /* Class given to containers that encapsulate objects that use tooltips */
+        .ToolTip {
+            position: relative;
+            display: block;
+            text-align: center;
+        }
+        /* Defines the text that will appear when the user hovers over the encapsulated element */
+        .ToolTip .ToolTipText {
+            width: 120px;
+            top: 100%;
+            left: 50%;
+            margin-left: -60px;
+            visibility: hidden;
+            background-color: black;
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+        }
+        /* Makes the ToolTipText visiable when the user hovers over the encapsulated element */
+        .ToolTip:hover .ToolTipText {
+            visibility: visible;
+        }
+        /* Changes the colors of the "More Info." button when the user hovers over it */
+        .ParkSite:hover {
+            border: 3px solid white;
+            background-color: black;
+            color: white;
+        }
+        /* Changes the color of the link to my portfolio when the user hovers over it */
+        .PortfolioLink:hover {
+            color: black;
+            background-color: white;
+        }
     </style>
 </head>
+<!-- BODY (HTML card elements are used for each park)  -->
 <body>
-    <nav class="NavBar">
-        <h3 class="NavItem">Portland Parks</h3>
-    </nav>
+    <!-- Top "Nav" Bar -->
+    <nav class="NavBar">🌲 Portland Parks 🌲</nav>
     <br />
+    <!-- Displays all the cards for all the parks in a flex-box container -->
     <div class="ParksResults">
+        <!-- Peninsula Park's Card -->
         <div class="ParkCard">
             <img class="ParkPic" src="https://media-cdn.tripadvisor.com/media/photo-m/1280/13/80/09/30/2018.jpg" width="100%" alt="Park Photo" />
             <div class="CardInfo">
-                <h3 class="ParkName">Card Title</h3>
-                <p class="ParkInfo">Some text was changed to see if it loads now...</p>
+                <h3 class="ParkName">Peninsula Park</h3>
+                <div class="ToolTip">
+                    <span class="ToolTipText">Link To Location</span>
+                    <a class="ParkLocation" target="_blank" href="https://www.google.com/maps/place/Peninsula+Park/@45.5685591,-122.6758833,17z/data=!4m8!1m2!2m1!1speninsula+park+portland!3m4!1s0x5495a70880a77b1b:0x23e99c2f00908a63!8m2!3d45.5674558!4d-122.6734142">
+                        700 N Rosa Parks Way
+                    </a>
+                </div>
+                <p class="ParkInfo">The historic Peninsula Park is home to the cities oldest public rose garden and second oldest playground. It also features a bandstand that is used for concerts and various meet ups.</p>
+                <button class="ParkSite" onclick="window.open(href='https://www.portland.gov/parks/peninsula-park', '_blank')">More Info.</button>
             </div>
         </div>
+        <!-- Unthank Park's Card -->
         <div class="ParkCard">
-            <img class="ParkPic" src="https://media-cdn.tripadvisor.com/media/photo-m/1280/13/80/09/30/2018.jpg" width="100%" alt="Park Photo" />
+            <img class="ParkPic" src="https://fastly.4sqi.net/img/general/600x600/25953152_FRStuMzLrTQtOp8sUO2DoJ8U9mU2Z-x4ofoa6smHh2Q.jpg" width="100%" alt="Park Photo" />
             <div class="CardInfo">
-                <h3 class="ParkName">Card Title</h3>
-                <p class="ParkInfo">Some text...</p>
+                <h3 class="ParkName">Unthank Park</h3>
+                <div class="ToolTip">
+                    <span class="ToolTipText">Link To Location</span>
+                    <a class="ParkLocation" target="_blank" href="https://www.google.com/maps/place/Denorval+Unthank+City+Park/@45.5514141,-122.6736921,17z/data=!4m12!1m6!3m5!1s0x5495a76aba3608d5:0xf2e3a777376a78da!2sDenorval+Unthank+City+Park!8m2!3d45.5514104!4d-122.6715034!3m4!1s0x5495a76aba3608d5:0xf2e3a777376a78da!8m2!3d45.5514104!4d-122.6715034">
+                        Denorval Unthank City Park
+                    </a>
+                </div>
+                <p class="ParkInfo">Named after Dr. DeNorval Unthank, Unthank park has multiple basketball courts as well as fields for grass sports.</p>
+                <br />
+                <br />
+                <button class="ParkSite" onclick="window.open(href='https://www.portland.gov/parks/peninsula-park', '_blank')">More Info.</button>
             </div>
         </div>
+        <!-- Arbor Lodge Park's Card -->
         <div class="ParkCard">
-            <img class="ParkPic" src="https://media-cdn.tripadvisor.com/media/photo-m/1280/13/80/09/30/2018.jpg" width="100%" alt="Park Photo" />
+            <img class="ParkPic" src="https://s3-media0.fl.yelpcdn.com/bphoto/9x1HMiPqc3uoa0qvwdmrag/348s.jpg" width="100%" alt="Park Photo" />
             <div class="CardInfo">
-                <h3 class="ParkName">Card Title</h3>
-                <p class="ParkInfo">Some text...</p>
+                <h3 class="ParkName">Arbor Lodge Park</h3>
+                <div class="ToolTip">
+                    <span class="ToolTipText">Link To Location</span>
+                    <a class="ParkLocation" target="_blank" href="https://www.google.com/maps/place/Arbor+Lodge+Park/@45.5725093,-122.6951147,17.74z/data=!4m5!3m4!1s0x0:0xaae2da883759696b!8m2!3d45.572835!4d-122.693745">
+                        N Delaware Ave & North Bryant Street
+                    </a>
+                </div>
+                <p class="ParkInfo">From the playground build into the parks lanscaping to tenis courts and baseball fields, Arbor Lodge Park has the activities for the whole family in a relativly small location.</p>
+                <button class="ParkSite" onclick="window.open(href='https://www.portland.gov/parks/arbor-lodge-park', '_blank')">More Info.</button>
             </div>
         </div>
+        <!-- Overlook Park's Card -->
         <div class="ParkCard">
-            <img class="ParkPic" src="https://media-cdn.tripadvisor.com/media/photo-m/1280/13/80/09/30/2018.jpg" width="100%" alt="Park Photo" />
+            <img class="ParkPic" src="https://s3-media0.fl.yelpcdn.com/bphoto/u9uVEY6ZwG04U1fO8JLEmw/348s.jpg" width="100%" alt="Park Photo" />
             <div class="CardInfo">
-                <h3 class="ParkName">Card Title</h3>
-                <p class="ParkInfo">Some text...</p>
+                <h3 class="ParkName">Overlook Park</h3>
+                <div class="ToolTip">
+                    <span class="ToolTipText">Link To Location</span>
+                    <a class="ParkLocation" target="_blank" href="https://www.google.com/maps/place/Overlook+Park/@45.5485223,-122.7175813,13z/data=!4m8!1m2!2m1!1soverlook+Park!3m4!1s0x5495a7686d07ad05:0xcb68f91e075acba6!8m2!3d45.5485223!4d-122.6825624">
+                        1599 N Fremont St
+                    </a>
+                </div>
+                <p class="ParkInfo">A park with an amaizng view of downtown Portland as well as the North-West industial area. The park is dog-freindly and has varios courts and fields for all types of sports.</p>
+                <button class="ParkSite" onclick="window.open(href='https://www.portland.gov/parks/overlook-park', '_blank')">More Info.</button>
             </div>
         </div>
+        <!-- HALF WAY POINT BETWEEN THE CARDS (4 ABOVE, 4 BELOW) -->
+        <!-- Gammans Park's Card -->
         <div class="ParkCard">
-            <img class="ParkPic" src="https://media-cdn.tripadvisor.com/media/photo-m/1280/13/80/09/30/2018.jpg" width="100%" alt="Park Photo" />
+            <img class="ParkPic" src="https://images.marketleader.com/HouseImages/RMLS/816/f_20060816_29.jpg" width="100%" alt="Park Photo" />
             <div class="CardInfo">
-                <h3 class="ParkName">Card Title</h3>
-                <p class="ParkInfo">Some text...</p>
-            </div>
-        </div>        <div class="ParkCard">
-            <img class="ParkPic" src="https://media-cdn.tripadvisor.com/media/photo-m/1280/13/80/09/30/2018.jpg" width="100%" alt="Park Photo" />
-            <div class="CardInfo">
-                <h3 class="ParkName">Card Title</h3>
-                <p class="ParkInfo">Some text...</p>
-            </div>
-        </div>
-        <div class="ParkCard">
-            <img class="ParkPic" src="https://media-cdn.tripadvisor.com/media/photo-m/1280/13/80/09/30/2018.jpg" width="100%" alt="Park Photo" />
-            <div class="CardInfo">
-                <h3 class="ParkName">Card Title</h3>
-                <p class="ParkInfo">Some text...</p>
+                <h3 class="ParkName">Gammans Park</h3>
+                <div class="ToolTip">
+                    <span class="ToolTipText">Link To Location</span>
+                    <a class="ParkLocation" target="_blank" href="https://www.google.com/maps/place/Gammans+Park/@45.5753598,-122.6961491,17z/data=!4m12!1m6!3m5!1s0x5495a7d5e8fdcc49:0x18fb4475594f8dba!2sGammans+Park!8m2!3d45.5753561!4d-122.6939604!3m4!1s0x5495a7d5e8fdcc49:0x18fb4475594f8dba!8m2!3d45.5753561!4d-122.6939604">
+                        N Gammans Pl
+                    </a>
+                </div>
+                <p class="ParkInfo">With a small playground and a narrow pathed bike path, Gammans Park offers a central meeting space for those in the surronding North-West Portland neighborhood.</p>
+                <button class="ParkSite" onclick="window.open(href='https://www.portland.gov/parks/gammans-park', '_blank')">More Info.</button>
             </div>
         </div>
+        <!-- Columbia Park & Annex's Card -->
         <div class="ParkCard">
-            <img class="ParkPic" src="https://media-cdn.tripadvisor.com/media/photo-m/1280/13/80/09/30/2018.jpg" width="100%" alt="Park Photo" />
+            <img class="ParkPic" src="https://parksoftheworld.files.wordpress.com/2013/09/2013-08-24-18-51-38.jpg" width="100%" alt="Park Photo" />
             <div class="CardInfo">
-                <h3 class="ParkName">Card Title</h3>
-                <p class="ParkInfo">Some text...</p>
+                <h3 class="ParkName">Columbia Park & Annex</h3>
+                <div class="ToolTip">
+                    <span class="ToolTipText">Link To Location</span>
+                    <a class="ParkLocation" target="_blank" href="https://www.google.com/maps/place/Columbia+Park+%26+Annex/@45.5789079,-122.7133766,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a79379dcec77:0xb5a161a60530dfb8!8m2!3d45.5789042!4d-122.7111879">
+                        4503 N Lombard St
+                    </a>
+                </div>
+                <p class="ParkInfo">A large wooded park with multiple full sized fields, overhangs, a playground and a public indoor pool. Columbia Park & Annex truely has something for everyone.</p>
+                <br />
+                <button class="ParkSite" onclick="window.open(href='https://www.portland.gov/parks/columbia-park', '_blank')">More Info.</button>
             </div>
         </div>
+        <!-- Dawson Park's Card -->
         <div class="ParkCard">
-            <img class="ParkPic" src="https://media-cdn.tripadvisor.com/media/photo-m/1280/13/80/09/30/2018.jpg" width="100%" alt="Park Photo" />
+            <img class="ParkPic" src="https://media-cdn.tripadvisor.com/media/photo-s/13/a9/1e/4e/mvimg-20180707-191232.jpg" width="100%" alt="Park Photo" />
             <div class="CardInfo">
-                <h3 class="ParkName">Card Title</h3>
-                <p class="ParkInfo">Some text...</p>
+                <h3 class="ParkName">Dawson Park</h3>
+                <div class="ToolTip">
+                    <span class="ToolTipText">Link To Location</span>
+                    <a class="ParkLocation" target="_blank" href="https://www.google.com/maps/place/Dawson+Park/@45.5441344,-122.6673873,15z/data=!4m5!3m4!1s0x0:0x6209b68298402b3c!8m2!3d45.5441344!4d-122.6673873">
+                        1 N Stanton St
+                    </a>
+                </div>
+                <p class="ParkInfo">Located right outside the Legacy Emanuel Medical Center, Dawson Park is a small park with playgrounds for kids and seating for those looking to get fresh air.</p>
+                <br />
+                <button class="ParkSite" onclick="window.open(href='https://www.portland.gov/parks/dawson-park', '_blank')">More Info.</button>
+            </div>
+        </div>
+        <!-- Kenton City Park's Card -->
+        <div class="ParkCard">
+            <img class="ParkPic" src="https://www.portlandoregon.gov/shared/cfm/image.cfm?id=698181" width="100%" alt="Park Photo" />
+            <div class="CardInfo">
+                <h3 class="ParkName">Kenton City Park</h3>
+                <div class="ToolTip">
+                    <span class="ToolTipText">Link To Location</span>
+                    <a class="ParkLocation" target="_blank" href="https://www.google.com/maps/place/Kenton+Park/@45.5834306,-122.6928113,17z/data=!3m1!4b1!4m5!3m4!1s0x5495a7b774de7b33:0x3be5cde0b0ec0cf7!8m2!3d45.5834269!4d-122.6906226">
+                        8417 N Brandon Ave
+                    </a>
+                </div>
+                <p class="ParkInfo">Recently renovated in 2018, Kenton City Park has state of the line playground and newly installed picnic tables. A great short visit for anyone shopping in Kenton.</p>
+                <br />
+                <button class="ParkSite" onclick="window.open(href='https://www.portland.gov/parks/kenton-park', '_blank')">More Info.</button>
             </div>
         </div>
     </div>
-    <!-- JAVASCRIPT -->
-    <script></script>
+    <br />
+    <!-- Footer (Published info and link back to Portfolio) -->
+    <footer class="FooterBar">
+        <h4>ⓒ 2021: Web Page By Mitchell Estes</h4>
+        <div class="ToolTip">
+            <span class="ToolTipText">Link To My Portfolio</span>
+            <a class="PortfolioLink" target="_blank" href="https://mestes1530.github.io/">mestes1530.github.io</a>
+        </div>
+    </footer>
 </body>
 </html>
